@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteRule ^Publication/([0-9]+)/?$ publications.php?publicationId=$1
+
+RewriteRule ^User/([A-za-z0-9]+)/?$ user.php?username=$1

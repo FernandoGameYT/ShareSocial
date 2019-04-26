@@ -1,35 +1,12 @@
 <?php
     session_start();
-
-    if(!isset($direction)) {
-        require(__DIR__."/../connection.php");
-    }
-
-    if(!isset($_SESSION["SessionId"])) {
-        if(isset($_COOKIE["SessionId"])) {
-            $_SESSION["SessionId"] = $_COOKIE["SessionId"];
-        }else{
-            header("Location: $direction/register.php");
-            exit;
-        }
-    }
-
-    $check_user = $pdo -> prepare("SELECT * FROM users WHERE SessionId = ?");
-
-    if($check_user -> execute([$_SESSION["SessionId"]])) {
-        if($check_user -> rowCount() > 0) {
-            $user_data = $check_user -> fetch();
-        }else{
-            header("Location: $direction/register.php#register");
-            exit;
-        }
-    }
+    require(__DIR__."/../security.php");
 
 ?>
 
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand font-weight-bold" href="<?php echo $direction;?>">
-        <img src="<?php echo $direction;?>img/main-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="<?php echo $direction;?>img/main-icon.png" width="30" height="30" class="d-inline-block align-top" alt="share social logo">
         ShareSocial
     </a>
 
@@ -43,17 +20,21 @@
                 <span class="fa fa-home"></span>
                 <span class="font-weight-bold">Inicio</span>
             </a>
-            <a class="nav-item nav-link" href="#">
+            <a class="nav-item nav-link" href="<?php echo $direction;?>notifications.php">
                 <span class="fa fa-bell"></span>
                 <span class="font-weight-bold">Notificaciones</span>
             </a>
-            <a class="nav-item nav-link" href="#">
+            <a class="nav-item nav-link" href="<?php echo $direction;?>messages.php">
                 <span class="fa fa-envelope"></span>
                 <span class="font-weight-bold">Mensajes Directos</span>
             </a>
-            <a class="nav-item nav-link" href="#">
+            <a class="nav-item nav-link" href="<?php echo $direction;?>configuration.php">
                 <span class="fa fa-cog"></span>
                 <span class="font-weight-bold">Configuracion</span>
+            </a>
+            <a class="nav-item nav-link" href="<?php echo $direction;?>closeSession.php">
+                <span class="fa fa-power-off"></span>
+                <span class="font-weight-bold">Cerrar sesion</span>
             </a>
         </div>
     </div>

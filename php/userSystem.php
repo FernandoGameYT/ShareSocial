@@ -122,6 +122,36 @@
                 exit;
             }
         }
+    } else if($type == "get") {
+        include("security.php");
+
+        $search = $_POST["search"];
+
+        if((int) $search) {
+            $get_user = $pdo -> prepare("SELECT Id, Username FROM users WHERE Id = ? AND Id <> ?");
+
+            if($get_user -> execute([$search, $user_data["Id"]])) {
+                if($get_user -> rowCount() > 0) {
+                    echo json_encode($get_user -> fetchAll());
+                    exit;
+                } else {
+                    echo json_encode(array());
+                    exit;
+                }
+            }
+        }else{
+            $get_users = $pdo -> prepare("SELECT Id, Username FROM users WHERE Username LIKE ? AND Id <> ? LIMIT 10");
+
+            if($get_users -> execute(['%'.$search.'%', $user_data["Id"]])) {
+                if($get_users -> rowCount() > 0) {
+                    echo json_encode($get_users -> fetchAll());
+                    exit;
+                } else {
+                    echo json_encode(array());
+                    exit;
+                }
+            }
+        }
     }
 
 ?>

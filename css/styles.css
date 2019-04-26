@@ -68,6 +68,8 @@
 
 #loader {
     position: fixed;
+    top: 0;
+    left: 0;
     display: none;
     z-index: 1000;
     width: 100%;
@@ -95,11 +97,373 @@
     padding: 20px;
     animation: 0.5s fade forwards;
 }
+
 .alert .close {
     outline: none;
     position: absolute;
     right: 10px;
     top: 5px;
+}
+
+.publication-container textarea {
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+}
+
+.publication-container .publish {
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+}
+
+.publication-container .add-img {
+    border-radius: 25px;
+}
+
+.publication-container .preview-container {
+    position: relative;
+}
+
+.publication-container .preview-container .preview {
+    height: 200px;
+    margin: 10px 0;
+}
+
+.publication-container .preview-container .delete {
+    outline: none;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    background: black;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    transition: 0.5s;
+}
+
+.publication-container .preview-container .delete:hover {
+    opacity: 0.5;
+}
+
+.all-publications-container .content-container {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    word-wrap: break-word;
+}
+
+.all-publications-container .profile-container {
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.all-publications-container .profile-container a {
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+
+.all-publications-container .profile-container a:hover {
+    color: var(--primary);
+}
+
+.all-publications-container .profile-container span {
+    color: rgba(0, 0, 0, 0.5);
+    float: right;
+}
+
+.all-publications-container .like-container {
+    padding: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    border-top: none;
+}
+
+.all-publications-container .like-container button {
+    outline: none;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #b9b9b9;
+    transition: 1s;
+}
+
+.all-publications-container .like-container button:hover {
+    color: red;
+}
+
+.all-publications-container .like-container button.red {
+    color: red;
+}
+
+.all-publications-container .like-container button.red:hover {
+    color: #b9b9b9;
+}
+
+.all-publications-container .like-container button.more-options:hover {
+    color: black;
+}
+
+.all-publications-container .like-container .info {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+.all-publications-container .comment-profile-container {
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.all-publications-container .comment-profile-container .content {
+    word-wrap: break-word;
+    display: block;
+    margin-top: 10px;
+}
+
+.all-publications-container .comment-profile-container .delete {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.all-publications-container .comment-profile-container .date {
+    float: right;       
+}
+
+.all-publications-container .add-comment-form textarea {
+    outline: 0;
+    padding: 10px;
+    border-radius: 5px;
+    resize: none;
+    height: 50px;
+    transition: 0.2s;
+}
+
+.all-publications-container .add-comment-form textarea:focus,
+.all-publications-container .add-comment-form textarea:valid {
+    height: 80px;
+}
+
+.all-publications-container .add-comment-form button {
+    font-weight: bold;
+    height: 50px;
+}
+
+footer {
+    background: #144daa;
+    color: white;
+    font-weight: bold;
+}
+
+footer a {
+    color: white;
+    transition: 0.5s;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #cbdfff;
+}
+
+.chats-container {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.chats-container .chat {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.chats-container .chat:hover {
+    background: #f1f1f1;
+}
+
+.new-chat-button {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 25px;
+}
+
+.search-users-container {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    overflow-y: scroll;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.search-users-container.active {
+    display: block;
+}
+
+.search-users-container .close-button {
+    outline: none;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: #e4e4e4;
+    transition: 0.5s;
+}
+
+.search-users-container .close-button:hover {
+    color: #a5a5a5;
+}
+
+.search-users-container .form {
+    position: relative;
+    top: 50px;
+    background: white;
+}
+
+.search-users-container .users-container {
+    position: relative;
+    top: 100px;
+    background: white;
+}
+
+.messages-container #messages {
+    position: relative;
+    overflow-y: scroll;
+    padding: 20px;
+    height: 500px;
+}
+
+.messages-container .backward-button {
+    font-size: 25px;
+    padding: 0;
+    float: left;
+}
+
+.messages-container .message.user-message {
+    position: relative;
+    margin-left: 20%;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 10px;
+    background: #ebebeb;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.messages-container .message {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #3784cc;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.messages-container .send-message {
+    width: 100%;
+    background: var(--light);
+    padding: 10px 20px;
+}
+
+.messages-container .send-message textarea {
+    width: 85%;
+    height: 50px;
+    resize: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.messages-container .send-message button {
+    width: 10%;
+    height: 50px;
+    font-size: 20px;
+    float: right;
+}
+
+.configuration-user-container .option {
+    display: block;
+    transition: 0.3s;
+}
+
+.configuration-user-container .option:hover {
+    background: #f6f6f6;
+}
+
+.configuration-user-container .option button {
+    background: transparent;
+    outline: none;
+    border: none;
+    transition: 0.2s;
+}
+
+.configuration-user-container .option button:hover {
+    color: #a8a8a8;
+}
+
+.configuration-user-container .configuration-form-container input {
+    max-width: 400px;
+    margin: auto;
+}
+
+.select-menu ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.select-menu li {
+    display: inline;
+    font-size: 18px;
+    padding: 10px 15px;
+    font-weight: 450;
+    transition: 0.3s;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.select-menu li:hover {
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+}
+
+.select-menu li.active {
+    color: black;
+    font-weight: bold;
+}
+
+.select-menu li.active:hover {
+    cursor: pointer;
+}
+
+.follower-item {
+    float: left;
+    text-align: center;
+}
+
+.follower-item a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.follower-item a:hover {
+    color: var(--primary);
 }
 
 @keyframes fade {
@@ -111,5 +475,32 @@
     100% {
         right: 50px;
         opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .messages-container .send-message button {
+        width: 15%;
+    }
+}
+
+@media (max-width: 576px) {
+    .messages-container .send-message button {
+        width: 20%;
+    }
+
+    .messages-container .send-message textarea {
+        width: 80%;
+    }
+
+    .all-publications-container .profile-container span {
+        display: block;
+        float: none;
+    }
+
+    .all-publications-container .comment-profile-container .date {
+        float: none;
+        display: block;
+        font-size: 12px;
     }
 }
